@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Решение алгоритмической задачи</title>
+  </head>
+  <body>
+    <h1>Задача: Можно ли из бревна выпилить квадратный брус?</h1>
+    <form id="taskForm">
+      <p for="diameter">Диаметр бревна (D): 10</p>
+
+      <p for="width">Ширина квадратного бруса (A): 8</p>
+      <input type="submit" value="Решить" />
+    </form>
+    <div id="result"></div>
+
+    <script>
+      document
+        .getElementById("taskForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const diameter = 10;
+          const width = 8;
+
+          if (isSquareBeamPossible(diameter, width)) {
+            document.getElementById("result").textContent =
+              "Можно выпилить квадратный брус.";
+          } else {
+            document.getElementById("result").textContent =
+              "Нельзя выпилить квадратный брус.";
+          }
+        });
+
+      function isSquareBeamPossible(D, A) {
+        return A <= D;
+      }
+    </script>
+  </body>
+</html>
